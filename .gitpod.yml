@@ -2,7 +2,13 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - init: echo 'init script' # runs during prebuild
+  - name: Start Services
+    init: |
+      docker-compose pull --quiet
+    command: |
+      docker-compose up -d db
+  - name: Other Commands
+    init: echo 'init script' # runs during prebuild
     command: echo 'start script'
 
 vscode:
