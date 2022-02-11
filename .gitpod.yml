@@ -1,0 +1,15 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - init: echo 'init script' # runs during prebuild
+    command: echo 'start script'
+
+vscode:
+  extensions:
+    - GitHub.vscode-pull-request-github
+    - ms-azuretools.vscode-docker
+    - ms-python.python
+    - njpwerner.autodocstring
+    - KevinRose.vsc-python-indent
+    - formulahendry.code-runner
