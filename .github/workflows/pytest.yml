@@ -22,7 +22,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: ['2.7', '3.7', '3.8', '3.9', '3.10', 'pypy-2.7', 'pypy-3.8']
+        python-version: ['3.7', '3.8', '3.9', '3.10', 'pypy-2.7', 'pypy-3.8']
         exclude:
           - os: macos-latest
             python-version: '3.8'
@@ -32,12 +32,16 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - uses: actions/checkout@v2
+      - name: Install pipenv
+        run: pipx install pipenv
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
       - name: Display Python version
         run: python --version
+      - name: Display Pipenv version
+        run: pipenv --version
 
       # Checks for existing Pipfile.lock
       - name: Check file existence
