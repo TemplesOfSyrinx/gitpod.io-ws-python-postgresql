@@ -41,9 +41,9 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Pipfile File exists
-        if: steps.check_files.outputs.files_exists == 'true'
+        # if: steps.check_files.outputs.files_exists == 'true'
         # Only runs if all of the files exists
         run: |
-          pipenv install --dev
+          # pipenv install --dev
           # assume that pytest is listed under the [dev-packages]
           pipenv run pytest
