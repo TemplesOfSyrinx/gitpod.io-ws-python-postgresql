@@ -18,8 +18,11 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, ubuntu-20.04]
+        python: [3.8, 3.9, 3.10]
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -34,14 +37,14 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Install Python, pipenv and Pipfile packages
-        if: steps.check_files.outputs.files_exists == 'true'
+        # if: steps.check_files.outputs.files_exists == 'true'
         uses: palewire/install-python-pipenv-pipfile@v2
         with:
-          python-version: 3.9
+          python-version: ${{ matrix.python }}
 
       # Runs a set of commands using the runners shell
       - name: Pipfile File exists
-        # if: steps.check_files.outputs.files_exists == 'true'
+        if: steps.check_files.outputs.files_exists == 'true'
         # Only runs if all of the files exists
         run: |
           # pipenv install --dev
