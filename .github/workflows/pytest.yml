@@ -40,8 +40,10 @@ jobs:
         with:
           files: "Pipfile.lock"
 
-      - name: Install pipenv
-        run: pipx install pipenv
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pipx install pipenv
 
       - name: Set up Python
         # if: steps.check_files.outputs.files_exists == 'true'
