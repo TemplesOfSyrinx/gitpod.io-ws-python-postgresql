@@ -21,3 +21,4 @@ jobs:
     - name: Show Version
       run: |
         python --version
+        pip --version
