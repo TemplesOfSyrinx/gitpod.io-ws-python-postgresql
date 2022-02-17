@@ -16,7 +16,6 @@ jobs:
     strategy:
       matrix:
         python-version: ['3.7', '3.8', '3.9', '3.10']
-
     # Service containers to run with `runner-job`
     services:
       # Label used to access the service container
@@ -37,6 +36,8 @@ jobs:
           - 5432:5432
 
     steps:
+    - name: Show Environment
+      run: env
     - name: Show Version
       run: |
         python --version
