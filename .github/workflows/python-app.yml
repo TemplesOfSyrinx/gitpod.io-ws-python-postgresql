@@ -37,7 +37,9 @@ jobs:
 
     steps:
     - name: Show Environment
-      run: env
+      run: |
+        env
+        echo $GITHUB_ACTOR
     - name: Show Version
       run: |
         python --version
