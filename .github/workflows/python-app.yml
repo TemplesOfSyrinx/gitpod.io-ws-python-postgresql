@@ -42,3 +42,4 @@ jobs:
         python --version
         pip --version
         python -m ensurepip --upgrade --user
+        pipenv --version
