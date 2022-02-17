@@ -12,7 +12,7 @@ on:
 jobs:
   container-job:
     runs-on: ubuntu-latest
-    container: python
+    container: python:3.9.10
 
     steps:
     - name: Show Version
