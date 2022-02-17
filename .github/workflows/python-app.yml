@@ -21,4 +21,5 @@ jobs:
     - name: Show Version
       run: |
         python --version
-        python -m ensurepip --upgrade || pip --version
+        pip --version
+        python -m ensurepip --upgrade --user
